@@ -42,11 +42,14 @@ const newGrocery = (e)=>{
         type:'grocery/add',
         text: groceryText
     })
-    console.log(store.getState())
+    document.getElementById('newItem').value =''
 }
 
 // create the grocery list
 const renderList = (state)=>{
+    while(list.firstChild){
+        list.removeChild(list.firstChild)
+    }
     state.forEach(grocery => {
         let li= document.createElement('li')
         list.appendChild(li)
